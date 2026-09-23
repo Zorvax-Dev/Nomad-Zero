@@ -227,6 +227,26 @@ body {
   @media (prefers-reduced-motion: reduce) {
     #status::before, #nomad-loader-horizon { animation: none; }
   }
+  /* Visible dès la première image, y compris avant le démarrage de Godot. */
+  @media (orientation: portrait) {
+    body::before {
+      content: "↻\A\A NØMAD ZERO\A\A MODE PAYSAGE\A\A Tourne ton téléphone pour jouer.\A Déverrouille la rotation si besoin.";
+      position: fixed;
+      inset: 0;
+      z-index: 2147483647;
+      box-sizing: border-box;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: max(24px, env(safe-area-inset-left));
+      color: #f7dcba;
+      background: radial-gradient(circle at 50% 43%, #183c46, #0b1620 75%);
+      font: 700 clamp(19px, 5vw, 28px)/1.3 system-ui, -apple-system, sans-serif;
+      text-align: center;
+      white-space: pre-line;
+      letter-spacing: .08em;
+    }
+  }
 </style>
 <script>
   (function () {
@@ -298,7 +318,7 @@ body {
 
 		<script src="index.js"></script>
 		<script>
-const GODOT_CONFIG = {"args":[],"canvasResizePolicy":2,"emscriptenPoolSize":8,"ensureCrossOriginIsolationHeaders":false,"executable":"index","experimentalVK":false,"fileSizes":{"index.pck":7426256,"index.wasm":39514754},"focusCanvas":true,"gdextensionLibs":[],"godotPoolSize":4,"serviceWorker":"index.service.worker.js"};
+const GODOT_CONFIG = {"args":[],"canvasResizePolicy":2,"emscriptenPoolSize":8,"ensureCrossOriginIsolationHeaders":false,"executable":"index","experimentalVK":false,"fileSizes":{"index.pck":12167756,"index.wasm":39514754},"focusCanvas":true,"gdextensionLibs":[],"godotPoolSize":4,"serviceWorker":"index.service.worker.js"};
 const GODOT_THREADS_ENABLED = false;
 const engine = new Engine(GODOT_CONFIG);
 
